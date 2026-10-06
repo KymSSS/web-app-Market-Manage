@@ -4,19 +4,66 @@ st.title("ระบบจัดการหลังร้านค้า", widt
 
 colum = st.columns(4)
 
+#ข้อมูลลูกค้า
+
+def customer():
+  for i in Customer_data.keys():
+  print(i)
+  for j in Customer_data[i]:
+    print('\t' , j ,'\t' , Customer_data[i][j])
+
+Customer_data = {
+    '101' : {
+        'Customer Name' : 'John Doe',
+        'age' : 32 ,
+        'Gender' : 'Male' ,
+        'Total Spend' : 2500
+    },
+    '102' : {
+        'Customer Name' : 'Jane Smith',
+        'age' : 27 ,
+        'Gender' : 'Female' ,
+        'Total Spend' : 1500
+    },
+    '103' : {
+        'Customer Name' : 'Robert Brown',
+        'age' : 45 ,
+        'Gender' : 'Male' ,
+        'Total Spend' : 3200
+    },
+    '104' : {
+        'Customer Name' : 'Emily Davis',
+        'age' : 38 ,
+        'Gender' : 'Female' ,
+        'Total Spend' : 1800
+    },
+    '105' : {
+        'Customer Name' : 'Michael Johnson',
+        'age' : 29 ,
+        'Gender' : 'Male' ,
+        'Total Spend' : 2100
+    }
+}
+
+
+
 with colum[0]:
   manage_button = st.button("จัดการสินค้า",width="stretch")
   if manage_button:
     st.markdown("สวัสดี")
-      
+
 with colum[1]:
   stock_button = st.button("เช็คจำนวนสินค้า",width="stretch")
 with colum[2]:
   calculate_button = st.button("คำนวณยอดขายสินค้า",width="stretch")
 with colum[3]:
   customer_button = st.button("จัดการข้อมูลลูกค้า",width="stretch")
+  if customer_button:
+    for i in Customer_data.keys():
+  print(i)
+  for j in Customer_data[i]:
+    print('\t' , j ,'\t' , Customer_data[i][j])
 
-  
 
 
 
