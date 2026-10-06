@@ -36,7 +36,6 @@ def customer_search(): #ฟังค์ชันการหาชื่อล�
     elif name_customer:
         st.warning("ไม่พบข้อมูลลูกค้า")
 
-def load_customer():
 def customer_add():
 
     st.subheader("เพิ่มข้อมูลลูกค้า")
