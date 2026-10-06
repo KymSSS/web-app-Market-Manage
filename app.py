@@ -111,5 +111,7 @@ elif st.session_state.get("menu") == "ลูกค้า":
   st.header("จัดการข้อมูลลูกค้า")
   name = st.text_input("ชื่อ-นามสกุล")
   age = st.number_input("ใส่อายุ")
-  customer_search()
+  add_customer()
+  customer_data()
+
   
