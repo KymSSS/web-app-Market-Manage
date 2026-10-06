@@ -6,34 +6,36 @@ colum = st.columns(4)
 
 #ข้อมูลลูกค้า
 
-def customer_search():
+def customer_search(): #ฟังค์ชันการหาชื่อลูก
 
-    query = st.text_input(
+    name_customer = st.text_input(
         "ค้นหาชื่อลูกค้า",
         type="search"
     )
 
-    matches = []
+    matches = [] #สร้าง list เปล่าเพื่อที่เราจะได้เอาข้อมูลที่ค้นหามา show
 
-    for customer_id, customer in customer_data.items():
+    for customer_id, customer in customer_data.items(): #หาข้อมูลจากใน list ทั้งหมด
 
-        if query.lower() in customer["Customer Name"].lower():
+        if name_customer.lower() in customer["Customer Name"].lower():
 
-            matches.append({
+            matches.append({ 
                 "Customer ID": customer_id,
                 "Customer Name": customer["Customer Name"],
                 "Age": customer["age"],
                 "Gender": customer["Gender"],
                 "Total Spend": customer["Total Spend"]
-            })
+            }) #อันนี้แหละที่เอาไปใส่ใน list เปล่า
 
     if matches:
         st.dataframe(
             matches,
             hide_index=True
-        )
-    elif query:
+        ) #อันนี้ จะสร้าง ตารางไม่มีไร
+    elif name_customer:
         st.warning("ไม่พบข้อมูลลูกค้า")
+
+
 customer_data = {
     '101' : {
         'Customer Name' : 'John Doe',
@@ -84,6 +86,4 @@ elif st.session_state.get("menu") == "ลูกค้า":
   name = st.text_input("ชื่อ-นามสกุล")
   age = st.number_input("ใส่อายุ")
   customer_search()
-
-
-
+  
