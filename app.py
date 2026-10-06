@@ -110,6 +110,5 @@ elif st.session_state.get("menu") == "คำนวณยอดขายสิน
 elif st.session_state.get("menu") == "ลูกค้า":
   st.header("จัดการข้อมูลลูกค้า")
   customer_add()
-  customer_data()
 
   
