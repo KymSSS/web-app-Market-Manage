@@ -52,44 +52,54 @@ with colum[2]:
   calculate_button = st.button("คำนวณยอดขายสินค้า",width="stretch")
 with colum[3]:
   customer_button = st.button("จัดการข้อมูลลูกค้า",width="stretch")
-name = st.text_input("ชื่อ-นามสกุล")
+    if customer_button:
+        import streamlit as st
 
-age = st.number_input(
+import streamlit as st
+
+st.title("ระบบจัดการหลังร้านค้า", width="stretch", text_alignment="center", wrap=True)
+
+colum = st.columns(4)
+
+#ข้อมูลลูกค้า
+
+Customer_data = {}
+
+colum = st.columns(4)
+
+with colum[0]:
+  manage_button = st.button("จัดการสินค้า",width="stretch")
+  if manage_button:
+    st.markdown("สวัสดี")
+
+with colum[1]:
+  stock_button = st.button("เช็คจำนวนสินค้า",width="stretch")
+with colum[2]:
+  calculate_button = st.button("คำนวณยอดขายสินค้า",width="stretch")
+with colum[3]:
+  customer_button = st.button("จัดการข้อมูลลูกค้า",width="stretch")
+  if customer_button:
+    name = st.text_input("ชื่อ-นามสกุล")
+    
+    age = st.number_input(
     "อายุ",
     min_value=1,
     max_value=100,
     value=18
-)
-
-gender = st.selectbox(
+    )
+    gender = st.selectbox(
     "เพศ",
-    ["Male", "Female", "Other"]
-)
-
-if st.button("➕ เพิ่มสมาชิก"):
-
-    if name == "":
-        st.error("กรุณากรอกชื่อสมาชิก")
-
-    else:
-        # สร้าง ID ใหม่
-        if len(Customer_data) == 0:
-            new_id = "101"
-        else:
-            last_id = max(int(x) for x in Customer_data.keys())
-            new_id = str(last_id + 1)
-
-        # เพิ่มข้อมูลสมาชิก
-        Customer_data[new_id] = {
-            "Customer Name": name,
-            "age": age,
-            "Gender": gender,
-            "Total Spend": 0
+    ["Male", "Female"]
+    )
+    Customer_data[new_id] = {
+        "Customer Name": name,
+        "age": age,
+        "Gender": gender,
         }
 
-        st.success(f"เพิ่มสมาชิกเรียบร้อยแล้ว! Customer ID: {new_id}")
 
-        st.write(Customer_data[new_id])
+        
+
 
 
 
