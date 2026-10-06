@@ -4,5 +4,3 @@ st.title("ระบบจัดการสินค้าหลังร้า�
 
 menu_button = st.button("MENU")
 if menu_button:
-    date_set = [1,2,3,4,5]
-    st.markdown(data_set)
