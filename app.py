@@ -22,12 +22,10 @@ with colum[2]:
 with colum[3]:
   customer_button = st.button("จัดการข้อมูลลูกค้า",width="stretch")
   if customer_button:
-    name = st.text_input("ชื่อ-นามสกุล")
-
+    st.session_state["menu"] = "ลูกค้า"
 if st.session_state.get("menu") == "ลูกค้า":
     st.header("จัดการข้อมูลลูกค้า")
-    st.text_input("ชื่อ-นามสกุล")
-        
+    name = st.text_input("ชื่อ-นามสกุล")
 
 
 
