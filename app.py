@@ -17,54 +17,6 @@ customer_data = {
     },
 }
 
-def load_customer():
-
-    try:
-        with open("customers.csv", "r", encoding="utf-8") as file:
-
-            reader = csv.DictReader(file)
-
-            customer_data.clear()
-
-            for row in reader:
-
-                customer_data[row["Customer ID"]] = {
-                    "Customer Name": row["Customer Name"],
-                    "age": int(row["age"]),
-                    "Gender": row["Gender"],
-                    "Total Spend": float(row["Total Spend"])
-                }
-
-    except FileNotFoundError:
-        pass
-
-
-def save_customer():
-
-    with open("customers.csv", "w", newline="", encoding="utf-8") as file:
-
-        writer = csv.writer(file)
-
-        writer.writerow([
-            "Customer ID",
-            "Customer Name",
-            "age",
-            "Gender",
-            "Total Spend"
-        ])
-
-        for customer_id, customer in customer_data.items():
-
-            writer.writerow([
-                customer_id,
-                customer["Customer Name"],
-                customer["age"],
-                customer["Gender"],
-                customer["Total Spend"]
-            ])
-load_customer()
-
-
 
 def customer_search(): #ฟังค์ชันการหาชื่อลูก
 
@@ -120,10 +72,6 @@ def customer_add():
         save_customer()
 
         st.success(f"เพิ่มลูกค้า {name} สำเร็จ")
-
-
-
-
 
 
 colum = st.columns(4)
