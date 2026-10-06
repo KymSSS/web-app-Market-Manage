@@ -6,7 +6,6 @@ colum = st.columns(4)
 
 #ข้อมูลลูกค้า
 
-
 Customer_data = {
     '101' : {
         'Customer Name' : 'John Doe',
@@ -54,10 +53,6 @@ with colum[2]:
 with colum[3]:
   customer_button = st.button("จัดการข้อมูลลูกค้า",width="stretch")
   if customer_button:
-    for i in Customer_data.keys():
-    print(i)
-    for j in Customer_data[i]:
-       print('\t' , j ,'\t' , Customer_data[i][j])
 
 
 
