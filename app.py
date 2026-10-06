@@ -7,6 +7,65 @@ colum = st.columns(4)
 
 #ข้อมูลลูกค้า
 
+
+customer_data = {
+    '101' : {
+        'Customer Name' : 'John Doe',
+        'age' : 32 ,
+        'Gender' : 'Male' ,
+        'Total Spend' : 2500
+    },
+}
+
+def load_customer():
+
+    try:
+        with open("customers.csv", "r", encoding="utf-8") as file:
+
+            reader = csv.DictReader(file)
+
+            customer_data.clear()
+
+            for row in reader:
+
+                customer_data[row["Customer ID"]] = {
+                    "Customer Name": row["Customer Name"],
+                    "age": int(row["age"]),
+                    "Gender": row["Gender"],
+                    "Total Spend": float(row["Total Spend"])
+                }
+
+    except FileNotFoundError:
+        pass
+
+
+def save_customer():
+
+    with open("customers.csv", "w", newline="", encoding="utf-8") as file:
+
+        writer = csv.writer(file)
+
+        writer.writerow([
+            "Customer ID",
+            "Customer Name",
+            "age",
+            "Gender",
+            "Total Spend"
+        ])
+
+        for customer_id, customer in customer_data.items():
+
+            writer.writerow([
+                customer_id,
+                customer["Customer Name"],
+                customer["age"],
+                customer["Gender"],
+                customer["Total Spend"]
+            ])
+load_customer()
+
+
+
 def customer_search(): #ฟังค์ชันการหาชื่อลูก
 
     name_customer = st.text_input(
@@ -37,31 +96,6 @@ def customer_search(): #ฟังค์ชันการหาชื่อล�
         st.warning("ไม่พบข้อมูลลูกค้า")
 
 
-def save_customer():
-
-    with open("customers.csv", "w", newline="", encoding="utf-8") as file:
-
-        writer = csv.writer(file)
-
-        writer.writerow([
-            "Customer ID",
-            "Customer Name",
-            "age",
-            "Gender",
-            "Total Spend"
-        ])
-
-        for customer_id, customer in customer_data.items():
-
-            writer.writerow([
-                customer_id,
-                customer["Customer Name"],
-                customer["age"],
-                customer["Gender"],
-                customer["Total Spend"]
-            ])
-load_customer()
-
 def customer_add():
 
     st.subheader("เพิ่มข้อมูลลูกค้า")
@@ -88,36 +122,6 @@ def customer_add():
         st.success(f"เพิ่มลูกค้า {name} สำเร็จ")
 
 
-customer_data = {
-    '101' : {
-        'Customer Name' : 'John Doe',
-        'age' : 32 ,
-        'Gender' : 'Male' ,
-        'Total Spend' : 2500
-    },
-}
-
-
-def load_customer():
-
-    try:
-        with open("customers.csv", "r", encoding="utf-8") as file:
-
-            reader = csv.DictReader(file)
-
-            customer_data.clear()
-
-            for row in reader:
-
-                customer_data[row["Customer ID"]] = {
-                    "Customer Name": row["Customer Name"],
-                    "age": int(row["age"]),
-                    "Gender": row["Gender"],
-                    "Total Spend": float(row["Total Spend"])
-                }
-
-    except FileNotFoundError:
-        pass
 
 
 
