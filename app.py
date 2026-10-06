@@ -14,11 +14,13 @@ colum = st.columns(4)
 with colum[0]:
   manage_button = st.button("จัดการสินค้า",width="stretch")
   if manage_button:
-    st.markdown("สวัสดี")
+    st.session_state["menu"] ="จัดการสินค้า"
 
 
 with colum[1]:
   stock_button = st.button("เช็คจำนวนสินค้า",width="stretch")
+  if stock_button:
+    st.session_state["menu"] = "เช็คจำนวนสินค้า"
 
 
 with colum[2]:
@@ -33,12 +35,17 @@ with colum[3]:
     st.session_state["menu"] = "ลูกค้า"
 
 
-
-if st.session_state.get("menu") == "ลูกค้า":
-    st.header("จัดการข้อมูลลูกค้า")
-    name = st.text_input("ชื่อ-นามสกุล")
-if st.session_state.get("menu") == "คำนวณยอดขายสินค้า":
+if st.session_state.get("menu") == "จัดการสินค้า":
   st.header("ควาย")
+  name = st.text_input("ชื่อ-นามสกุล")
+elif st.session_state.get("menu") == "เช็คจำนวนสินค้า":
+  st.header("ควาย")
+  name = st.text_input("ชื่อ-นามสกุล")
+elif st.session_state.get("menu") == "คำนวณยอดขายสินค้า":
+  st.header("ควาย")
+  name = st.text_input("ชื่อ-นามสกุล")
+  else st.session_state.get("menu") == "ลูกค้า":
+  st.header("จัดการข้อมูลลูกค้า")
   name = st.text_input("ชื่อ-นามสกุล")
 
 
