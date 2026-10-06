@@ -13,7 +13,14 @@ def Customer_datadef():
     ]
     st.dataframe(matches, hide_index=True)
 
-Customer_data = {}
+Customer_data = {
+    '101' : {
+        'Customer Name' : 'John Doe',
+        'age' : 32 ,
+        'Gender' : 'Male' ,
+        'Total Spend' : 2500
+    },
+}
 
 colum = st.columns(4)
 
