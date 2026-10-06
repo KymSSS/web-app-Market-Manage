@@ -24,7 +24,9 @@ with colum[3]:
   if customer_button:
     name = st.text_input("ชื่อ-นามสกุล")
 
-
+if st.session_state.get("menu") == "ลูกค้า":
+    st.header("จัดการข้อมูลลูกค้า")
+    st.text_input("ชื่อ-นามสกุล")
         
 
 
