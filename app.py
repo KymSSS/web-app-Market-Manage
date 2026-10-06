@@ -36,6 +36,30 @@ def customer_search(): #ฟังค์ชันการหาชื่อล�
         st.warning("ไม่พบข้อมูลลูกค้า")
 
 
+def customer_add():
+
+    st.subheader("เพิ่มข้อมูลลูกค้า")
+
+    name = st.text_input("ชื่อ-นามสกุล")
+    age = st.number_input("อายุ")
+    gender = st.text_input("เพศ")
+
+    if st.button("เพิ่มลูกค้า"):
+
+        # สร้าง ID ใหม่
+        new_id = str(max(map(int, customer_data.keys())) + 1)
+
+        # เพิ่มข้อมูลลง Dictionary
+        customer_data[new_id] = {
+            "Customer Name": name,
+            "age": age,
+            "Gender": gender,
+            "Total Spend": 0
+        }
+
+        st.success(f"เพิ่มลูกค้า {name} สำเร็จ")
+
+
 customer_data = {
     '101' : {
         'Customer Name' : 'John Doe',
@@ -44,6 +68,8 @@ customer_data = {
         'Total Spend' : 2500
     },
 }
+
+
 
 colum = st.columns(4)
 
