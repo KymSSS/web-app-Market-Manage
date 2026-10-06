@@ -35,7 +35,6 @@ def customer_search(): #ฟังค์ชันการหาชื่อล�
                 "Customer Name": customer["Customer Name"],
                 "Age": customer["age"],
                 "Gender": customer["Gender"],
-                "Total Spend": customer["Total Spend"]
             }) #อันนี้แหละที่เอาไปใส่ใน list เปล่า
 
     if matches:
