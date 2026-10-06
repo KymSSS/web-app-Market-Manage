@@ -13,7 +13,6 @@ customer_data = {
         'Customer Name' : 'John Doe',
         'age' : 32 ,
         'Gender' : 'Male' ,
-        'Total Spend' : 2500
     },
 }
 
@@ -48,6 +47,8 @@ def customer_search(): #ฟังค์ชันการหาชื่อล�
         st.warning("ไม่พบข้อมูลลูกค้า")
 
 
+
+
 def customer_add():
 
     st.subheader("เพิ่มข้อมูลลูกค้า")
@@ -66,10 +67,7 @@ def customer_add():
             "Customer Name": name,
             "age": age,
             "Gender": gender,
-            "Total Spend": 0
         }
-
-        save_customer()
 
         st.success(f"เพิ่มลูกค้า {name} สำเร็จ")
 
