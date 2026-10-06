@@ -36,13 +36,13 @@ with colum[3]:
 
 
 if st.session_state.get("menu") == "จัดการสินค้า":
-  st.header("ควาย")
+  st.header("จัดการสินค้า")
   name = st.text_input("ชื่อ-นามสกุล")
 elif st.session_state.get("menu") == "เช็คจำนวนสินค้า":
-  st.header("ควาย")
+  st.header("เช็คจำนวนสินค้า")
   name = st.text_input("ชื่อ-นามสกุล")
 elif st.session_state.get("menu") == "คำนวณยอดขายสินค้า":
-  st.header("ควาย")
+  st.header("Calculate")
   name = st.text_input("ชื่อ-นามสกุล")
 elif st.session_state.get("menu") == "ลูกค้า":
   st.header("จัดการข้อมูลลูกค้า")
