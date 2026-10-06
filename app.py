@@ -2,14 +2,6 @@ import streamlit as st
 
 st.title("ระบบจัดการสินค้าหลังร้าน")
 
-add_selectbox = st.sidebar.selectbox(
-    "How would you like to be contacted?",
-    ("Email", "Home phone", "Mobile phone")
-)
-
-# Using "with" notation
-with st.sidebar:
-    add_radio = st.radio(
-        "Choose a shipping method",
-        ("Standard (5-15 days)", "Express (2-5 days)")
-    )
+menu_button = st.button
+if menu_button:
+    date_set = [1,2,3,4,5]
