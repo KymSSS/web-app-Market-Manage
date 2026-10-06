@@ -47,6 +47,7 @@ elif st.session_state.get("menu") == "คำนวณยอดขายสิน
 elif st.session_state.get("menu") == "ลูกค้า":
   st.header("จัดการข้อมูลลูกค้า")
   name = st.text_input("ชื่อ-นามสกุล")
+  age = st.st.number_input("ใส่อายุ")
 
 
 
