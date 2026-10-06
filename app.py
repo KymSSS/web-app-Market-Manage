@@ -60,6 +60,7 @@ def save_customer():
                 customer["Gender"],
                 customer["Total Spend"]
             ])
+load_customer()
 
 def customer_add():
 
@@ -97,29 +98,27 @@ customer_data = {
 }
 
 
-def save_customer():
+def load_customer():
 
-    with open("customers.csv", "w", newline="", encoding="utf-8") as file:
+    try:
+        with open("customers.csv", "r", encoding="utf-8") as file:
 
-        writer = csv.writer(file)
+            reader = csv.DictReader(file)
 
-        writer.writerow([
-            "Customer ID",
-            "Customer Name",
-            "age",
-            "Gender",
-            "Total Spend"
-        ])
+            customer_data.clear()
 
-        for customer_id, customer in customer_data.items():
+            for row in reader:
 
-            writer.writerow([
-                customer_id,
-                customer["Customer Name"],
-                customer["age"],
-                customer["Gender"],
-                customer["Total Spend"]
-            ])
+                customer_data[row["Customer ID"]] = {
+                    "Customer Name": row["Customer Name"],
+                    "age": int(row["age"]),
+                    "Gender": row["Gender"],
+                    "Total Spend": float(row["Total Spend"])
+                }
+
+    except FileNotFoundError:
+        pass
+
 
 
 
@@ -163,6 +162,4 @@ elif st.session_state.get("menu") == "ลูกค้า":
   st.header("จัดการข้อมูลลูกค้า")
   customer_add()
   customer_search()
-load_customer()
-
   
