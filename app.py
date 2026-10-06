@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("ระบบจัดการสินค้าหลังร้าน")
+st.header("ระบบจัดการสินค้าหลังร้าน")
 
 manage_button = st.button("จัดการสินค้า")
 stock_button = st.button("เช็คจำนวนสินค้า")
