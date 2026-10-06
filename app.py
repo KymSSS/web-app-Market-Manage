@@ -91,11 +91,6 @@ with colum[3]:
     "เพศ",
     ["Male", "Female"]
     )
-    Customer_data[new_id] = {
-        "Customer Name": name,
-        "age": age,
-        "Gender": gender,
-        }
 
 
         
