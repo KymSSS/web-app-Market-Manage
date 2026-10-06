@@ -21,19 +21,19 @@ with colum[2]:
   calculate_button = st.button("คำนวณยอดขายสินค้า",width="stretch")
 with colum[3]:
   customer_button = st.button("จัดการข้อมูลลูกค้า",width="stretch")
-    if customer_button:name = st.text_input("ชื่อ-นามสกุล")
-    
-    age = st.number_input(
-    "อายุ",
-    min_value=1,
-    max_value=100,
-    value=18
-    )
-    gender = st.selectbox(
-    "เพศ",
-    ["Male", "Female"]
-    )
-    Customer_data[new_id] = {
+    if customer_button:
+      name = st.text_input("ชื่อ-นามสกุล")
+      age = st.number_input(
+      "อายุ",
+      min_value=1,
+      max_value=100,
+      value=18
+      )
+      gender = st.selectbox(
+        "เพศ",
+        ["Male", "Female"]
+      )
+      Customer_data[new_id] = {
         "Customer Name": name,
         "age": age,
         "Gender": gender,
