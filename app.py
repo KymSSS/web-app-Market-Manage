@@ -60,7 +60,6 @@ def save_customer():
                 customer["Gender"],
                 customer["Total Spend"]
             ])
-load_customer()
 
 def customer_add():
 
@@ -164,5 +163,6 @@ elif st.session_state.get("menu") == "ลูกค้า":
   st.header("จัดการข้อมูลลูกค้า")
   customer_add()
   customer_search()
+load_customer()
 
   
