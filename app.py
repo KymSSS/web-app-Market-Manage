@@ -2,10 +2,6 @@ import streamlit as st
 
 st.title("ระบบจัดการหลังร้านค้า", width="stretch", text_alignment="center", wrap=True)
 
-st.title("ระบบจัดการหลังร้านค้า", width="stretch", text_alignment="center", wrap=True)
-
-colum = st.columns(4)
-
 colum = st.columns(4)
 
 with colum(0):
