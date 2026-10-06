@@ -7,12 +7,33 @@ colum = st.columns(4)
 #ข้อมูลลูกค้า
 
 def customer_search():
-    query = st.text_input("Search products", type="search", live=True)
-    matches = [
-        p for p in customer_search if query.lower() in p["101"].lower()
-    ]
-    st.dataframe(matches, hide_index=True)
 
+    query = st.text_input(
+        "ค้นหาชื่อลูกค้า",
+        type="search"
+    )
+
+    matches = []
+
+    for customer_id, customer in customer_data.items():
+
+        if query.lower() in customer["Customer Name"].lower():
+
+            matches.append({
+                "Customer ID": customer_id,
+                "Customer Name": customer["Customer Name"],
+                "Age": customer["age"],
+                "Gender": customer["Gender"],
+                "Total Spend": customer["Total Spend"]
+            })
+
+    if matches:
+        st.dataframe(
+            matches,
+            hide_index=True
+        )
+    elif query:
+        st.warning("ไม่พบข้อมูลลูกค้า")
 customer_data = {
     '101' : {
         'Customer Name' : 'John Doe',
