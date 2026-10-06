@@ -5,7 +5,7 @@ st.title("ระบบจัดการหลังร้านค้า", widt
 colum = st.columns(4)
 
 with colum[0]:
-  manage_button = st.button("จัดการสินค้า",width="stretch")
+  manage_button = st.button("จัดการสินค้า",width="stretch",hold="red")
 with colum[1]:
   stock_button = st.button("เช็คจำนวนสินค้า",width="stretch")
 with colum[2]:
