@@ -36,7 +36,7 @@ def customer_search(): #ฟังค์ชันการหาชื่อล�
     elif name_customer:
         st.warning("ไม่พบข้อมูลลูกค้า")
 
-
+def load_customer():
 def customer_add():
 
     st.subheader("เพิ่มข้อมูลลูกค้า")
@@ -58,6 +58,8 @@ def customer_add():
             "Total Spend": 0
         }
 
+        save_customer()
+
         st.success(f"เพิ่มลูกค้า {name} สำเร็จ")
 
 
@@ -69,6 +71,31 @@ customer_data = {
         'Total Spend' : 2500
     },
 }
+
+
+def save_customer():
+
+    with open("customers.csv", "w", newline="", encoding="utf-8") as file:
+
+        writer = csv.writer(file)
+
+        writer.writerow([
+            "Customer ID",
+            "Customer Name",
+            "age",
+            "Gender",
+            "Total Spend"
+        ])
+
+        for customer_id, customer in customer_data.items():
+
+            writer.writerow([
+                customer_id,
+                customer["Customer Name"],
+                customer["age"],
+                customer["Gender"],
+                customer["Total Spend"]
+            ])
 
 
 
