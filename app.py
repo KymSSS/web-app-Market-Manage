@@ -6,6 +6,13 @@ colum = st.columns(4)
 
 #ข้อมูลลูกค้า
 
+def Customer_datadef():
+    query = st.text_input("Search products", type="search", live=True)
+    matches = [
+        p for p in Customer_data if query.lower() in p["Product"].lower()
+    ]
+    st.dataframe(matches, hide_index=True)
+
 Customer_data = {}
 
 colum = st.columns(4)
@@ -48,7 +55,7 @@ elif st.session_state.get("menu") == "ลูกค้า":
   st.header("จัดการข้อมูลลูกค้า")
   name = st.text_input("ชื่อ-นามสกุล")
   age = st.number_input("ใส่อายุ")
-
+  Customer_datadef()
 
 
 
