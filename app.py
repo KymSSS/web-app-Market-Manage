@@ -5,13 +5,13 @@ st.title("ระบบจัดการหลังร้านค้า", widt
 colum = st.columns(4)
 
 with colum[0]:
-  manage_button = st.button("จัดการสินค้า")
+  manage_button = st.button("จัดการสินค้า",width="stretch")
 with colum[1]:
-  stock_button = st.button("เช็คจำนวนสินค้า")
+  stock_button = st.button("เช็คจำนวนสินค้า",width="stretch")
 with colum[2]:
-  calculate_button = st.button("คำนวณยอดขายสินค้า")
+  calculate_button = st.button("คำนวณยอดขายสินค้า",width="stretch")
 with colum[3]:
-  customer_button = st.button("จัดการข้อมูลลูกค้า")
+  customer_button = st.button("จัดการข้อมูลลูกค้า",width="stretch")
 
 
 
