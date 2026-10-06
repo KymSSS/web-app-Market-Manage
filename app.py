@@ -11,8 +11,6 @@ def product_search(): #ค้นหา product
     ]
     st.dataframe(matches, hide_index=True)
 
-product_search()
-
 with colum[0]:
   manage_button = st.button("จัดการสินค้า",width="stretch")
   if manage_button:
