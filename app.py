@@ -44,7 +44,7 @@ elif st.session_state.get("menu") == "เช็คจำนวนสินค้
 elif st.session_state.get("menu") == "คำนวณยอดขายสินค้า":
   st.header("ควาย")
   name = st.text_input("ชื่อ-นามสกุล")
-  else st.session_state.get("menu") == "ลูกค้า":
+elif st.session_state.get("menu") == "ลูกค้า":
   st.header("จัดการข้อมูลลูกค้า")
   name = st.text_input("ชื่อ-นามสกุล")
 
