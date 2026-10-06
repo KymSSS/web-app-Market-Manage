@@ -9,7 +9,7 @@ colum = st.columns(4)
 def Customer_datadef():
     query = st.text_input("Search products", type="search", live=True)
     matches = [
-        p for p in Customer_data if query.lower() in p["Product"].lower()
+        p for p in Customer_datadef if query.lower() in p["Customer_data"].lower()
     ]
     st.dataframe(matches, hide_index=True)
 
